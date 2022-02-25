@@ -1,0 +1,32 @@
+Q3...Use the same rest countries and print all countries name, region, sub region and population?
+
+Ans...
+
+
+
+// set up http request
+var xhr=new XMLHttpRequest();
+xhr.open("GET","https://restcountries.com/v2/all");
+xhr.send();
+
+
+
+xhr.onload=function(){
+    // process the request get the data in readable format in console.
+    if(xhr.status>=200 && xhr.status<300){
+        var data= JSON.parse(xhr.response);
+        //console.log(data);  
+        for(var i=0; i<data.length;i++){
+            user=data[i];
+            console.log(
+                `Name:${user.name}
+                Region:${user.region}
+                Sub Region:${user.subregion}
+                population:${user.population}`
+            );
+        }
+    }
+    else{
+        console.log("Data is Not available");
+    }
+}
