@@ -9,7 +9,6 @@ xhr.open("GET","https://restcountries.com/v2/all");
 xhr.send();
 
 
-// set up
 
 xhr.onload=function(){
     // process the request get the data in readable format in console.
@@ -19,5 +18,8 @@ xhr.onload=function(){
         for(var i=0; i<data.length;i++){
             console.log(data[i].flag);
         }
+    }
+    else{
+        console.log("Data is Not available");
     }
 }
