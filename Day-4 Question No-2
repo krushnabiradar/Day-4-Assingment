@@ -1,1 +1,18 @@
+// set up http request
+var xhr=new XMLHttpRequest();
+xhr.open("GET","https://restcountries.com/v2/all");
+xhr.send();
 
+
+// set up
+
+xhr.onload=function(){
+    // process the request get the data in readable format in console.
+    if(xhr.status>=200 && xhr.status<300){
+        var data= JSON.parse(xhr.response);
+        //console.log(data);  
+        for(var i=0; i<data.length;i++){
+            console.log(data[i].flag);
+        }
+    }
+}
